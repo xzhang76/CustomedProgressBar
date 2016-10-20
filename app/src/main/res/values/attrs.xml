@@ -16,4 +16,13 @@
         <attr name="progress_text_size" />
         <attr name="progress_text_offset" />
     </declare-styleable>
+    <declare-styleable name="CircleProgress">
+        <attr name="progress_unreach_color" />
+        <attr name="progress_unreach_height" />
+        <attr name="progress_reach_color" />
+        <attr name="progress_reach_height" />
+        <attr name="progress_text_color" />
+        <attr name="progress_text_size" />
+        <attr name="text_is_show" format="boolean" />
+    </declare-styleable>
 </resources>
