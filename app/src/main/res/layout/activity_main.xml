@@ -45,26 +45,26 @@
             xzhang76:progress_unreach_height="3dp"
             xzhang76:progress_text_size="20sp"/>
 
-        <Button
-            android:id="@+id/start_button_circle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="start"
-            android:layout_marginLeft="5dp"
-            android:background="#FF12AE75"/>
+        <com.htsc.customedprogressbar.widget.RippleButton
+            android:id="@+id/ripple_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="RippleButton"
+            android:gravity="center"
+            android:textSize="12sp" />
 
-        <com.htsc.customedprogressbar.view.CircleProgress
-            android:id="@+id/circle_progress"
-            android:layout_gravity="center_horizontal"
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:max="100"
-            xzhang76:progress_reach_color="#ae6a12"
-            xzhang76:progress_text_color="#a6ae12"
-            xzhang76:progress_unreach_color="#44ae6a12"
-            xzhang76:progress_reach_height="3dp"
-            xzhang76:progress_unreach_height="3dp"
-            xzhang76:progress_text_size="20sp"/>
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="Button"
+            android:gravity="center"
+            android:textSize="12sp" />
+
     </LinearLayout>
 </ScrollView>
