@@ -37,7 +37,9 @@ public class RippleDrawable extends Drawable {
     private static final float INCREMENT = 16f/360;
     private int mMaxRadius = 0;
     // 插值器
-    private Interpolator mEnterInterpolator = new DecelerateInterpolator(1.2f);
+    private Interpolator mEnterInterpolator = new DecelerateInterpolator(2f);
+    // 按钮的背景色
+    private int mBackgroundColor;
 
     private Runnable mEnterRunnable = new Runnable() {
         @Override
@@ -62,7 +64,19 @@ public class RippleDrawable extends Drawable {
         mRadius = mMaxRadius * realProgress;
         mDrawableX = mDownCenterX + (mCenterX - mDownCenterX) * realProgress;
         mDrawableY = mDownCenterY + (mCenterY - mDownCenterY) * realProgress;
+        // 第一个参数是初始值
+        mBackgroundColor = changeColorAlpha(0x30ff0000, realProgress);
         invalidateSelf();
+    }
+
+    // 改变颜色的alpha值
+    private int changeColorAlpha(int color, float progress) {
+        int alpha = (color >> 24) & 0xFF;
+        alpha = (int) (alpha * progress);
+        int red = (color >> 16) & 0xFF;
+        int green = (color >> 8) & 0xFF;
+        int blue = color & 0xFF;
+        return (alpha << 24) | (red << 16) | (green << 8) | blue;
     }
 
     public RippleDrawable() {
@@ -78,6 +92,7 @@ public class RippleDrawable extends Drawable {
 
     @Override
     public void draw(Canvas canvas) {
+        canvas.drawColor(mBackgroundColor);
         canvas.drawCircle(mDrawableX, mDrawableY, mRadius, mPaint);
     }
 
