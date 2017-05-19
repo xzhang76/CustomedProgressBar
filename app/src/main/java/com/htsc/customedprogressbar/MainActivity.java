@@ -9,10 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 
 public abstract class MainActivity extends AppCompatActivity {
 
+    private BroadcastReceiver receiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BroadcastReceiver receiver = new BroadcastReceiver() {
+        receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 String action = intent.getAction();
@@ -26,5 +28,11 @@ public abstract class MainActivity extends AppCompatActivity {
 
     protected void testMethod() {
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(receiver);
     }
 }
